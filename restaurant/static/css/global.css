@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Roboto:ital,wght@0,100..900;1,100..900&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap');
+
+/* Fonts */
+:root {
+  --default-font: "Roboto", sans-serif;
+  --heading-font: "Carattere", cursive;
+  --nav-font: "Roboto", sans-serif;
+}
+
+
+
+.bold{
+  font-weight: bold !important;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+  --background-color: #ffffff; 
+  --default-color: #212529; 
+  --heading-color: #37373f; 
+  --accent-color: #1F7D53; 
+  --surface-color: #ffffff; 
+  --contrast-color: #ffffff; 
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #7f7f90;
+  --nav-hover-color: #1F7D53;
+  --nav-dropdown-hover-color: #1F7D53;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+
+.light-background {
+  --background-color: #f2f2f2;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #1f1f24;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #37373f;
+  --contrast-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+.text-justify {
+  text-align: justify !important;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
