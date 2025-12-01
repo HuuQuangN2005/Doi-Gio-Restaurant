@@ -1,32 +1,29 @@
-{% extends 'layouts/base.html' %}
-{% block css %}
+{% extends 'layouts/base.html' %} {% block css %}
 <link
   href="{{ url_for('static', filename='css/landing/etc.css')}}"
-  rel="stylesheet">
+  rel="stylesheet"
+/>
 
 <link
   href="{{ url_for('static', filename='css/landing/footer.css')}}"
-  rel="stylesheet">
+  rel="stylesheet"
+/>
 
 <link
   href="{{ url_for('static', filename='css/landing/header.css')}}"
-  rel="stylesheet">
+  rel="stylesheet"
+/>
 
 <link
   href="{{ url_for('static', filename='css/landing/section.css')}}"
-  rel="stylesheet">
+  rel="stylesheet"
+/>
 
-{% endblock %}
-{% block header %}
-{% include 'pages/landing/components/header.html' %}
-{% endblock %}
-
-{% block content%}
+{% endblock %} {% block header %} {% include
+'pages/landing/components/header.html' %} {% endblock %} {% block content%}
 
 <div class="SOS">
-
   <main class="main">
-
     <!-- Landing Section-->
     {% include 'pages/landing/components/section/hero-section.html' %}
     <!-- End Landing -->
@@ -42,20 +39,14 @@
     <!-- Menu Section -->
     {% include 'pages/landing/components/section/menu-section.html' %}
     <!-- End Menu -->
-    <section id="="
-      class="section events d-flex flex-column "
-      data-aos="fade-up">
 
-    </section>
+    <!-- Contact Section -->
+    {% include 'pages/landing/components/section/contact-section.html' %}
+    <!-- End Contact -->
+
   </main>
-
 </div>
-{% endblock %}
-
-{% block footer %}
-{% include 'pages/landing/components/footer.html' %}
-{% endblock %}
-
-{% block js %}
+{% endblock %} {% block footer %} {% include
+'pages/landing/components/footer.html' %} {% endblock %} {% block js %}
 <script src="{{ url_for('static', filename='js/landing.js')}}"></script>
 {% endblock %}
