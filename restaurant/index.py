@@ -1,8 +1,7 @@
 from restaurant import app
-from flask import render_template
-@app.route('/')
-def index():
-    return render_template('pages/landing/index.html')
+from restaurant.controllers import page_controller
+
+app.add_url_rule('/', 'landing', page_controller.landing)
 
 if __name__ == '__main__':
     with app.app_context():

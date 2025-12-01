@@ -5,7 +5,8 @@ call venv\Scripts\activate
 call pip install -r .\requirements.txt
 
 REM init db
-
+python -m restaurant.models.product
+python -m restaurant.models.user
 
 
 REM run server
