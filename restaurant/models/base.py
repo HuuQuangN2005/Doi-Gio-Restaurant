@@ -18,4 +18,3 @@ class UUIDBaseModel(db.Model):
     uuid = Column(String(36), default=lambda: str(uuid4()), unique=True)
     created_date = Column(DateTime, default=datetime.now)
     active = Column(Boolean, default=True)
-
