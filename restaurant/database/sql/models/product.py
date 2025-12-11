@@ -1,9 +1,9 @@
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, Text
 
-from restaurant.models.base import BaseModel, UUIDBaseModel
+from restaurant.database.sql.models.base import BaseModel, UUIDBaseModel
 from restaurant import app
-from restaurant.models import db
+from restaurant.database.sql import sql_db
 
 
 class Category(BaseModel):
@@ -42,7 +42,7 @@ class Food(UUIDBaseModel):
         return self.name
 
 
-food_tag = db.Table(
+food_tag = sql_db.Table(
     "food_tag",
     Column("food_id", Integer, ForeignKey("food.id"), primary_key=True),
     Column("tag_id", Integer, ForeignKey("tag.id"), primary_key=True),
@@ -51,4 +51,4 @@ food_tag = db.Table(
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
+        sql_db.create_all()

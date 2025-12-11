@@ -3,12 +3,15 @@ from sqlalchemy.exc import IntegrityError
 from enum import Enum as PyEnum
 
 from restaurant import app
-from restaurant.models import db
-from restaurant.models.base import BaseModel, UUIDBaseModel
+from restaurant.database.sql import sql_db
+from restaurant.database.sql.models.base import BaseModel, UUIDBaseModel
 
 from flask_login import UserMixin
 import hashlib
 
+from colorama import Fore, init
+
+init(autoreset=True) 
 
 class UserRole(PyEnum):
     ADMIN = 1
@@ -30,7 +33,7 @@ class User(UUIDBaseModel, UserMixin):
     name = Column(String(50), nullable=False)
     username = Column(String(50), nullable=False, unique=True)
     password = Column(String(50), nullable=False)
-    avatar = Column(String(100))  # sẽ chuyển vê cloudinary sau khi xong
+    avatar = Column(String(200))  # sẽ chuyển vê cloudinary sau khi xong
     user_role = Column(Enum(UserRole), default=UserRole.WAITER)
 
     def __str__(self):
@@ -54,17 +57,17 @@ def create_default_admin():
                 user_role=UserRole.ADMIN,
             )
 
-        db.session.add(admin)
+        sql_db.session.add(admin)
 
         try:
-            db.session.commit()
-            print("Default admin created.")
+            sql_db.session.commit()
+            print(Fore.GREEN + "Default admin created.")
             
         except IntegrityError:
-            db.session.rollback()
+            sql_db.session.rollback()
 
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
+        sql_db.create_all()
         create_default_admin()

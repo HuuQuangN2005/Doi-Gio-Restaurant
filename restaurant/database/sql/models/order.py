@@ -2,12 +2,12 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, ForeignKey, Text, Enum
 from enum import Enum as PyEnum
 
-from restaurant.models.base import UUIDBaseModel
+from restaurant.database.sql.models.base import UUIDBaseModel
 from restaurant import app
-from restaurant.models import db
+from restaurant.database.sql import sql_db
 
-from restaurant.models.user import User, Table
-from restaurant.models.product import Food
+from restaurant.database.sql.models.user import User, Table
+from restaurant.database.sql.models.product import Food
 
 
 class ReceiptStatus(PyEnum):
@@ -17,7 +17,7 @@ class ReceiptStatus(PyEnum):
 
 class ReceiptItemStatus(PyEnum):
     PENDING = 1        
-    COOKING = 2        
+    ACCEPTED = 2        
     DONE = 3
     CANCELLED = 4   
 
@@ -30,7 +30,7 @@ class Receipt(UUIDBaseModel):
     details = relationship("ReceiptItems", backref="receipt", lazy=True)
 
 
-class ReceiptItems(db.Model):
+class ReceiptItems(sql_db.Model):
     __tablename__ = "receipt_items"
 
     id = Column(Integer, autoincrement=True, primary_key=True)
@@ -43,4 +43,4 @@ class ReceiptItems(db.Model):
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
+        sql_db.create_all()

@@ -1,14 +1,30 @@
 from flask import Flask
+import os
+import sys
 
-from .configs import settings
+def create_app(config:str = 'config.py') -> Flask:
+    try:
+        app = Flask(__name__)
+        
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        config_path = os.path.join(package_dir, config)
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f"mysql+pymysql://{settings.DATABASE_USER}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOST}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}?charset=utf8mb4"
-)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+        app.config.from_pyfile(config_path)
+               
+        return app
+    
+    except Exception as e:
+            print(f"Error: {e}")
+            sys.exit(1)
+    
+def load_config_from_app(app:Flask):
+    print()
+    print("=== APP CONFIG ===")
+    for key, value in app.config.items():
+        print(key, ":", value)
 
 
-app.config["PAGE_SIZE_OF_CHOOSE_TABLE"] = 10
-app.config["NUMBER_OF_TABLE"] = 100
+    
+app = create_app()
 
+#load_config_from_app(app=app)
