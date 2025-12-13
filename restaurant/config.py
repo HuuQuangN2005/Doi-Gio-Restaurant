@@ -28,5 +28,5 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 # ===============================================
 
 RETHINKDB_HOST = os.environ.get("RETHINKDB_HOST", "localhost")
-RETHINKDB_PORT = os.environ.get("RETHINKDB_PORT", "localhost")
+RETHINKDB_PORT = os.environ.get("RETHINKDB_PORT", "29015")
 

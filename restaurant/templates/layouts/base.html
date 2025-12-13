@@ -6,7 +6,9 @@
         <title>
             {%block title%}Trang chủ{%endblock%} - Nhà hàng Đồi Gió
         </title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/etc/icon.jpg')}}" type="image/x-icon">
+        <link rel="shortcut icon"
+            href="{{ url_for('static', filename='imgs/etc/icon.jpg')}}"
+            type="image/x-icon">
         <link href="https://fonts.googleapis.com" rel="preconnect">
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link
@@ -40,6 +42,7 @@
         {% block content required %}{% endblock %}
 
         {% block footer %}{% endblock %}
+        <div id="preloader"></div>
 
         <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
         <script
@@ -54,5 +57,7 @@
             src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
 
         {% block js %}{% endblock %}
+        <script
+            src="{{ url_for('static', filename='js/global.js')}}"></script>
     </body>
 </html>

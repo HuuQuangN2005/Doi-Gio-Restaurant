@@ -5,6 +5,9 @@ from restaurant.database.sql.models.base import BaseModel, UUIDBaseModel
 from restaurant import app
 from restaurant.database.sql import sql_db
 
+from colorama import Fore, init
+
+init(autoreset=True)
 
 class Category(BaseModel):
     __tablename__ = "category"
@@ -52,3 +55,4 @@ food_tag = sql_db.Table(
 if __name__ == "__main__":
     with app.app_context():
         sql_db.create_all()
+        print(Fore.GREEN + "Product models created.")

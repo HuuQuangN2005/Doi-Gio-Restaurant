@@ -11,7 +11,8 @@ import hashlib
 
 from colorama import Fore, init
 
-init(autoreset=True) 
+init(autoreset=True)
+
 
 class UserRole(PyEnum):
     ADMIN = 1
@@ -53,7 +54,7 @@ def create_default_admin():
             admin = User(
                 name="Administrator",
                 username="admin",
-                password=hashlib.md5("admin123".encode("utf-8")).hexdigest(),
+                password=hashlib.md5("123".encode("utf-8")).hexdigest(),
                 user_role=UserRole.ADMIN,
             )
 
@@ -62,7 +63,7 @@ def create_default_admin():
         try:
             sql_db.session.commit()
             print(Fore.GREEN + "Default admin created.")
-            
+
         except IntegrityError:
             sql_db.session.rollback()
 
@@ -70,4 +71,6 @@ def create_default_admin():
 if __name__ == "__main__":
     with app.app_context():
         sql_db.create_all()
+        print(Fore.GREEN + "User models created.")
+
         create_default_admin()
