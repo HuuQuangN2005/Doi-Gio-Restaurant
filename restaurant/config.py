@@ -7,7 +7,7 @@ load_dotenv(find_dotenv())
 # Flask variables
 # ===============================================
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "8278baed-7649-45b4-9664-605a21a01233")
+SECRET_KEY = os.environ.get("SECRET_KEY", "your_key")
 
 # ===============================================
 # MySQL variables
@@ -24,9 +24,14 @@ SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # ===============================================
-# RethinkDB variables
+# Fire DB variables
 # ===============================================
+FIREBASE_DATABASE_URL = os.environ.get('FIREBASE_DATABASE_URL',"your_url")
 
-RETHINKDB_HOST = os.environ.get("RETHINKDB_HOST", "localhost")
-RETHINKDB_PORT = os.environ.get("RETHINKDB_PORT", "29015")
 
+# ===============================================
+# Cloudinary variables
+# ===============================================
+CLOUDINARY_CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME',"your_name")
+CLOUDINARY_API_KEY = os.environ.get('CLOUDINARY_API_KEY',"your_key")
+CLOUDINARY_SECRET_KEY = os.environ.get('CLOUDINARY_SECRET_KEY',"your_key")

@@ -1,5 +1,6 @@
-from sqlalchemy import Column, String, Enum
+from sqlalchemy import Column, String, Enum, Boolean
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import relationship, backref
 from enum import Enum as PyEnum
 
 from restaurant import app
@@ -29,16 +30,31 @@ class TableStatus(PyEnum):
 
 
 class User(UUIDBaseModel, UserMixin):
-    __tablename__ = "user"
+    __tablename__ = "users"
 
     name = Column(String(50), nullable=False)
     username = Column(String(50), nullable=False, unique=True)
     password = Column(String(50), nullable=False)
     avatar = Column(String(200))  # sẽ chuyển vê cloudinary sau khi xong
     user_role = Column(Enum(UserRole), default=UserRole.WAITER)
-
+    
+    
     def __str__(self):
         return self.name
+
+
+class Email(BaseModel):
+    __tablename__ = "emails"
+    name = Column(String(50), nullable=True, unique=True)
+    is_customer = Column(Boolean(), default=False)
+
+
+
+class Phone(BaseModel):
+    __tablename__ = "phones"
+    name = Column(String(50), nullable=True, unique=True)
+    is_customer = Column(Boolean(), default=False)
+
 
 
 class Table(BaseModel):

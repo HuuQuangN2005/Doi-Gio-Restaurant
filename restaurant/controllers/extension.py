@@ -1,10 +1,6 @@
-from restaurant.controllers.user import UserController
 from restaurant import app
 from flask_login import LoginManager
-from restaurant.database.realtime import *
-
-user_controller = UserController()
-
+from restaurant.controllers import *
 login = LoginManager(app)
 
 

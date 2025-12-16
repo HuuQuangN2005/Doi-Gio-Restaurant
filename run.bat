@@ -9,6 +9,8 @@ python -m restaurant.database.sql.models.product
 python -m restaurant.database.sql.models.user
 python -m restaurant.database.sql.models.order
 
+
+
 REM run server
 python -m restaurant.run
 pause

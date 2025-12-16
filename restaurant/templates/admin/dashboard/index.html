@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% block css %}
+<link
+  href="{{ url_for('static', filename='css/admin/header.css')}}"
+  rel="stylesheet"
+/>
+
+{% endblock %}
+
+{% block header %} 
+    {% include 'admin/components/header.html' %} 
+{% endblock %}
+
+<nav>
+
+</nav>
+
+{% block content%}
+
+{% endblock %}

@@ -28,7 +28,7 @@ class ReceiptItemStatus(PyEnum):
 
 
 class Receipt(UUIDBaseModel):
-    __tablename__ = "receipt"
+    __tablename__ = "receipts"
 
     order_by = Column(Integer, ForeignKey(Table.id), nullable=False)
     created_by = Column(Integer, ForeignKey(User.id), nullable=False)

@@ -9,7 +9,7 @@ def create_app(config:str = 'config.py') -> Flask:
         
         package_dir = os.path.dirname(os.path.abspath(__file__))
         config_path = os.path.join(package_dir, config)
-
+        
         app.config.from_pyfile(config_path)
                
         return app
@@ -27,5 +27,6 @@ def load_config_from_app(app:Flask):
 
     
 app = create_app()
+
 
 #load_config_from_app(app=app)

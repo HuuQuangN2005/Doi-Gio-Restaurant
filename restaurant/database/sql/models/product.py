@@ -10,7 +10,7 @@ from colorama import Fore, init
 init(autoreset=True)
 
 class Category(BaseModel):
-    __tablename__ = "category"
+    __tablename__ = "categories"
 
     name = Column(String(50), nullable=False, unique=True)
     foods = relationship("Food", backref="category", lazy=True)
@@ -20,6 +20,8 @@ class Category(BaseModel):
 
 
 class Tag(BaseModel):
+    __tablename__ = "tags"
+     
     name = Column(String(50), nullable=False, unique=True)
 
     def __str__(self):
@@ -27,7 +29,7 @@ class Tag(BaseModel):
 
 
 class Food(UUIDBaseModel):
-    __tablename__ = "food"
+    __tablename__ = "foods"
 
     name = Column(String(100), nullable=False)
     description = Column(Text)
@@ -36,7 +38,7 @@ class Food(UUIDBaseModel):
     category_id = Column(Integer, ForeignKey(Category.id), nullable=False)
     tags = relationship(
         "Tag",
-        secondary="food_tag",
+        secondary="foods_tags",
         lazy="subquery",
         backref=backref("foods", lazy=True),
     )
@@ -46,9 +48,9 @@ class Food(UUIDBaseModel):
 
 
 food_tag = sql_db.Table(
-    "food_tag",
-    Column("food_id", Integer, ForeignKey("food.id"), primary_key=True),
-    Column("tag_id", Integer, ForeignKey("tag.id"), primary_key=True),
+    "foods_tags",
+    Column("food_id", Integer, ForeignKey("foods.id"), primary_key=True),
+    Column("tag_id", Integer, ForeignKey("tags.id"), primary_key=True),
 )
 
 
