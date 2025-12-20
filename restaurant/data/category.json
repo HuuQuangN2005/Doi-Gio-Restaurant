@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Khai vị",
+    "active": true
+  },
+  {
+    "name": "Món chính",
+    "active": true
+  },
+  {
+    "name": "Hải sản",
+    "active": true
+  },
+  {
+    "name": "Đồ uống",
+    "active": true
+  },
+  {
+    "name": "Tráng miệng",
+    "active": true
+  },
+  {
+    "name": "Món chay",
+    "active": true
+  },
+  {
+    "name": "Đặc biệt",
+    "active": false
+  }
+]

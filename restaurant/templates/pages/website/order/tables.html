@@ -1,0 +1,71 @@
+{%extends 'pages/website/base.html'%}
+
+{%block css%}
+<link href="{{ url_for('static', filename='css/website/order.css') }}"
+    rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+
+<div
+    class="container-fluid py-4 d-flex justify-content-center align-items-start">
+
+    <div class="card border-0 shadow-sm p-4 my-3 mx-3 main-layout-card"
+        style="width: 700px; height: 700px;">
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h4 class="fw-bold text-dark mb-0">Danh mục bàn ăn</h4>
+
+            <div class="d-flex align-items-center gap-3">
+                {% if page > 1 %}
+                <a href="/website/{{user.uuid}}/order?page={{ page - 1 }}"
+                    class="btn-nav text-decoration-none"><</a>
+                {% else %}
+                <span class="btn-nav disabled"><</span>
+                {% endif %}
+
+                <div class="page-indicator">
+                    Trang <strong>{{ page }}</strong> / {{ number_of_pages }}
+                </div>
+
+                {% if page < number_of_pages %}
+                <a href="/website/{{user.uuid}}/order?page={{ page + 1 }}"
+                    class="btn-nav text-decoration-none">></a>
+                {% else %}
+                <span class="btn-nav disabled">></span>
+                {% endif %}
+            </div>
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 content-wrapper">
+            {% for table in tables %}
+            {% if table.status.name == 'AVAILABLE' %}
+            {% set bg_color = '#28a745' %}
+            {% elif table.status.name == 'IN_USE' %}
+            {% set bg_color = '#dc3545' %}
+            {% elif table.status.name == 'RESERVED' %}
+            {% set bg_color = '#ffc107' %}
+            {% else %}
+            {% set bg_color = '#28a745' %}
+            {% endif %}
+            <div class="col">
+                <a href="/ChonMonAn/{{table.id}}" class="text-decoration-none">
+                    <div class="table-card h-100">
+                        <div
+                            class="table-content p-4 text-center rounded-3 bg-primary text-white shadow-sm"
+                            style="background-color: {{ bg_color }} !important;">
+                            <h4 class="mb-0 fw-bold">Bàn {{table.id}}</h4>
+                            <span class="d-block small opacity-75 mb-1 mt-2">
+                                Status: {{table.status.name}}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}

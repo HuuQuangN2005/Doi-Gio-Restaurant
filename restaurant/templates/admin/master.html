@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+
+{% block head_css %}
+{{ super() }}
+<!-- thêm CSS Bootstrap 5 nếu cần -->
+<link rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin/custom-admin.css') }}">
+{% endblock %}
+
+{% block navbar %}
+
+{% endblock %}
+
+{% block body %}
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-light border-right">
+        <div class="sidebar-heading">Admin</div>
+        <div class="list-group list-group-flush">
+            {% for m in admin_menu %}
+            <a href="{{ m.url }}"
+                class="list-group-item list-group-item-action bg-light">
+                {{ m.name }}
+            </a>
+            {% endfor %}
+        </div>
+    </nav>
+    <!-- /#sidebar -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        {{ super() }}
+    </div>
+</div>
+{% endblock %}

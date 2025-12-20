@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>
+            {%block title%}Website{%endblock%} - Nhà hàng Đồi Gió
+        </title>
+        <link rel="shortcut icon"
+            href="{{ url_for('static', filename='imgs/etc/icon.jpg')}}"
+            type="image/x-icon">
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap"
+            rel="stylesheet">
+
+        <link
+            href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}"
+            rel="stylesheet">
+        <link
+            href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}"
+            rel="stylesheet">
+        <link href="{{ url_for('static', filename='vendor/aos/aos.css')}}"
+            rel="stylesheet">
+        <link
+            href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}"
+            rel="stylesheet">
+        <link
+            href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}"
+            rel="stylesheet">
+
+        <link
+            href="{{ url_for('static', filename='css/global.css')}}"
+            rel="stylesheet">
+
+        <link
+            href="{{ url_for('static', filename='css/website/website.css')}}"
+            rel="stylesheet">
+
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <div class="template d-flex " style="width: 100vw; height: 100vh;">
+            <nav class="h-100 nav d-flex flex-column"
+                style="width: 250px; height: 100vh;">
+                <div
+                    class="user-info-wrapper bg-dark w-100 pt-3 pl-3 pr-3 d-flex flex-column align-items-center">
+                    <div class="user-avatar p-3">
+                        <img src="{{ user.avatar }}" alt="Avatar">
+                    </div>
+                    <div
+                        class="user-info d-flex flex-column align-items-center">
+                        <h3 class="text-white">{{ user.name }}</h3>
+                        <p class="text-white m-0 mb-2">Role: {{
+                            user.role.name}}</p>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <ul
+                    class="nav-links d-flex flex-column list-unstyled mt-3 px-3 flex-grow-1 mt-5">
+                    <li class="nav-item">
+                        <a href="{{ url_for('profile', uuid=user.uuid) }}"
+                            class="nav-link d-flex align-items-center p-2 {% if request.endpoint == 'profile' %}active{% endif %}">
+                            <i class="bi bi-person-fill me-3"></i>
+                            <span>Trang cá nhân</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('order', uuid=user.uuid) }}"
+                            class="nav-link d-flex align-items-center p-2 {% if request.endpoint == 'order' %}active{% endif %}">
+                            <i class="bi bi-pen-fill me-3"></i>
+                            <span>Ghi nhận yêu cầu</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="divider"></div>
+                <ul
+                    class="nav-links d-flex flex-column list-unstyled mt-3 px-3">
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}"
+                            class="nav-link d-flex align-items-center p-2">
+                            <i class="bi bi-menu-button-wide-fill me-3"></i>
+                            <span>Cài đặt</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}"
+                            class="nav-link d-flex align-items-center p-2">
+                            <i class="bi bi-box-arrow-right me-3"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="d-flex flex-column flex-grow-1">
+                <header class="user-header"></header>
+                <main>
+                    {% block content required %}
+                    {% endblock %}
+                </main>
+                <footer></footer>
+            </div>
+        </div>
+
+        <div id="preloader"></div>
+
+        <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <script
+            src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script
+            src="{{ url_for('static', filename='vendor/aos/aos.js')}}"></script>
+        <script
+            src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+        <script
+            src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js')}}"></script>
+        <script
+            src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        {% block js %}{% endblock %}
+        <script
+            src="{{ url_for('static', filename='js/global.js')}}"></script>
+    </body>
+</html>

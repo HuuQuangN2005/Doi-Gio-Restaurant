@@ -1,0 +1,170 @@
+{%extends 'pages/website/base.html'%}
+{%block title%}Profile{%endblock%}
+
+{%block css%}
+<link href="{{ url_for('static', filename='css/website/profile.css') }}"
+    rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+<div class="container py-5">
+    <div class="row d-flex align-items-stretch">
+
+        <div class="col-lg-4 d-flex">
+            <div
+                class="card profile-card w-100 shadow-lg rounded-4 mb-4 border-0">
+                <div
+                    class="card-body text-center p-4 d-flex flex-column justify-content-center">
+                    <div class="avatar-wrapper mb-3">
+                        <img
+                            src="{{ user.avatar}}"
+                            class="rounded-circle avatar-img shadow-sm"
+                            alt="Avatar">
+                    </div>
+                    <h4 class="fw-bold mb-1">{{ user.name }}</h4>
+                    <p class="text-muted small">@{{ user.username }}</p>
+                    <div class="mb-3">
+                        <span
+                            class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
+                            {{ user.role.name }}
+                        </span>
+                    </div>
+                    <hr class="my-4 w-100">
+                    <button
+                        class="btn btn-primary w-100 rounded-pill py-2 mt-auto"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editProfileModal">
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 d-flex">
+            <div
+                class="card profile-card w-100 shadow-lg rounded-4 border-0 mb-4">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h5 class="fw-bold m-0">Thông tin chi tiết</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <p class="info-label text-muted small mb-1">Số điện
+                                thoại</p>
+                            <p class="info-value fw-bold">{{ user.phone }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p
+                                class="info-label text-muted small mb-1">Email</p>
+                            <p class="info-value fw-bold text-break">{{
+                                user.email or 'Chưa cập nhật' }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-label text-muted small mb-1">Giới
+                                tính</p>
+                            <p class="info-value fw-bold">
+                                {% if user.gender == 1 %} Nam
+                                {% else %} Nữ {% endif %}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p
+                                class="info-label text-muted small mb-1">Ngày
+                                vào làm</p>
+                            <p class="info-value fw-bold text-break">{{
+                                user.created_date.strftime('%d/%m/%Y') }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-label text-muted small mb-1">Số điện
+                                thoại</p>
+                            <p class="info-value fw-bold">{{ user.phone }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p
+                                class="info-label text-muted small mb-1">Email</p>
+                            <p class="info-value fw-bold text-break">{{
+                                user.email or 'Chưa cập nhật' }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-label text-muted small mb-1">Số điện
+                                thoại</p>
+                            <p class="info-value fw-bold">{{ user.phone }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p
+                                class="info-label text-muted small mb-1">Tình
+                                trạng tài khoản</p>
+                            <p class="info-value fw-bold">
+                                {% if user.active == 1 %} Kích hoạt
+                                {% else %} Vô hiệu hóa {% endif %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editProfileModal" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold">Chỉnh sửa thông tin</h5>
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal"></button>
+                </div>
+                <form action="/update-profile" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="modal-body p-4">
+                        <div class="mb-3 text-center">
+                            <label class="form-label d-block text-start">Thay
+                                đổi
+                                Avatar</label>
+                            <input type="file" name="avatar"
+                                class="form-control rounded-3">
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Họ và tên</label>
+                                <input type="text" name="name"
+                                    class="form-control rounded-3"
+                                    value="{{ user.name }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Giới tính</label>
+                                <select name="gender"
+                                    class="form-select rounded-3">
+                                    <option value="1" {% if user.gender == 1
+                                        %}selected{% endif %}>Nam</option>
+                                    <option value="0" {% if user.gender == 0
+                                        %}selected{% endif %}>Nữ</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Điện thoại</label>
+                                <input type="text" name="phone"
+                                    class="form-control rounded-3"
+                                    value="{{ user.phone }}">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Địa chỉ</label>
+                                <input type="text" name="address"
+                                    class="form-control rounded-3"
+                                    value="{{ user.address }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0">
+                        <button type="button"
+                            class="btn btn-light rounded-pill px-4"
+                            data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit"
+                            class="btn btn-primary rounded-pill px-4">Lưu thay
+                            đổi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+

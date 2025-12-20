@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Phở anh Hai",
+    "price": 45000,
+    "category_id": 2,
+    "image": "https://authentiktravel.com/media/blog/pho-hanoi-travel-blog.jpg",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Lẩu hải sản",
+    "price": 130000,
+    "category_id": 1,
+    "image": "https://atuankhang.vn/wp-content/uploads/2020/08/cach-nau-lau-hai-san-9.jpg"
+  },
+  {
+    "name": "Lẩu dê",
+    "price": 150000,
+    "category_id": 1,
+    "image": "https://emoi.vn/wp-content/uploads/2018/11/cach-nau-lau-de.jpeg",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Lẩu thập cẩm",
+    "price": 190000,
+    "category_id": 1,
+    "image": "https://toplist.vn/images/800px/lau-thap-cam-nuoc-lau-thai-1015104.jpg",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Lẩu thái",
+    "price": 170000,
+    "category_id": 1,
+    "image": "https://chatuchak.vn/image/catalog/LKD/am-thuc-thai-lan/lau-thai-thai-lan.jpg"
+  },
+  {
+    "name": "Lẩu bò",
+    "price": 140000,
+    "category_id": 1,
+    "image": "https://image-us.eva.vn/upload/3-2023/images/2023-07-10/9-cach-nau-lau-bo-tai-nha-don-gian-ma-ngon-nhuc-nhoi-ai-an-cung-tam-tac-khen-6-1688975299-884-width780height520.jpg",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Lẩu chay",
+    "price": 100000,
+    "category_id": 1,
+    "image": "https://reviewamthuc.net/wp-content/uploads/2024/12/lau-chay-9.jpg.webp",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Bún riêu",
+    "price": 35000,
+    "category_id": 2,
+    "image": "https://cdn.tgdd.vn/Files/2018/06/12/1094963/bon-buoc-de-co-ngay-mon-bun-rieu-cua-dong.jpg"
+  },
+  {
+    "name": "Bún bò",
+    "price": 30000,
+    "category_id": 2,
+    "image": "https://cdn.tgdd.vn/Files/2017/03/24/964495/cach-nau-bun-bo-hue-gio-heo-ngon-cong-thuc-chuan-vi-202208251617593627.jpg"
+  },
+  {
+    "name": "Hủ tiếu",
+    "price": 25000,
+    "category_id": 2,
+    "image": "https://tiki.vn/blog/wp-content/uploads/2023/09/aFBVaMsUA6G311oSnLAlzxj2SjbmniCjqg0-sUS8TC0Hfs8JwaXuNsU9GZEVHxTrDPPYI_rbpzLpw9kTpI8td6MQt0FYbLrzGaaZUIWe0IQfWaWp0mQdPjyTkxQ3qRavHtnDGzlkCAtMXBgaUGrEsL8.png"
+  },
+  {
+    "name": "Bún chả",
+    "price": 35000,
+    "category_id": 2,
+    "image": "https://bizweb.dktcdn.net/100/442/328/files/bun-cha-mon-dac-san-binh-di-cua-nguoi-ha-noi-1.jpg?v=1638938776859"
+  },
+  {
+    "name": "Sting đỏ",
+    "price": 12000,
+    "category_id": 3,
+    "image": "https://sieuthiminitunjp.com/wp-content/uploads/2019/09/3A8CF916-5898-45A4-91D1-DDF25DD42C1C-510x510.jpeg",
+    "description": "Coming soon..."
+  },
+  {
+    "name": "Sting vàng",
+    "price": 12000,
+    "category_id": 3,
+    "image": "https://horeco.vn/wp-content/uploads/2021/11/nuoc-sting-vang-320ml.jpg"
+  },
+  {
+    "name": "Nước suối",
+    "price": 8000,
+    "category_id": 3,
+    "image": "https://nuocsaka.com/wp-content/uploads/2023/04/aquafina-500ml.jpg"
+  },
+  {
+    "name": "Coca",
+    "price": 10000,
+    "category_id": 3,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.Bn1hJPzHx1rqeB-HQX628AHaHa?w=750&h=750&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+  {
+    "name": "Pepsi",
+    "price": 10000,
+    "category_id": 3,
+    "image": "https://static.vonbeau.net/images/uploads/content/pepsi-log-to-scan.png"
+  },
+
+  {
+    "name": "Trà đào",
+    "price": 17000,
+    "category_id": 3,
+    "image": "https://www.vegeta-chay.com/wp-content/uploads/2022/08/TraDao.jpg"
+  },
+  {
+    "name": "Trà cam sả",
+    "price": 17000,
+    "category_id": 3,
+    "image": "https://cdn.dealtoday.vn/1b720191a9c543999ed82e6fe2b71f5f.jpg",
+    "description": "Coming soon..."
+  }
+
+]

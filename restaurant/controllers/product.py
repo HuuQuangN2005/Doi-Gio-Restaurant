@@ -50,6 +50,9 @@ class FoodController(BaseController):
             .all()
         )
 
+    def find_by_category(self, category = None):
+        return self.find_by_filters(category = category)
+    
     def find_by_category_id(self, category_id: int) -> List[Food]:
         
         return self.find_by_filters(category_id=category_id)

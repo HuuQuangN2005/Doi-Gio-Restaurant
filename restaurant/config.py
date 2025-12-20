@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "your_key")
 
 MYSQL_HOST = os.environ.get("MYSQL_HOST", "localhost")
 MYSQL_USER = os.environ.get("MYSQL_USER", "root")
-MYSQL_PASSWORD = os.environ.get("MYSQL_ROOT_PASSWORD", "root")
+MYSQL_PASSWORD = os.environ.get("MYSQL_PASSWORD", "root")
 MYSQL_DB = os.environ.get("MYSQL_DATABASE", "restaurant_db")
 MYSQL_PORT = os.environ.get("MYSQL_PORT", "3306")
 

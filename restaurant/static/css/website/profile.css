@@ -1,0 +1,33 @@
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+.profile-card {
+  border: none;
+  transition: 0.3s;
+}
+.avatar-wrapper {
+  position: relative;
+  width: 150px;
+  margin: 0 auto;
+}
+.avatar-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+.btn-edit-avatar {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.info-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+.info-value {
+  font-weight: 600;
+  color: #333;
+}
